@@ -16,7 +16,7 @@
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Alugar Carros<</a>
+  <a class="navbar-brand" href="#">Alugar Carros</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -43,9 +43,9 @@
          Reserva
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/livros_reservados.php')">Carros Reservados</a>
+          <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/todos_reservados.php')">Carros Reservados</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/reservar_livro.php')">Reservar Um Carro</a>
+          <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/reservar_carro.php')">Reservar Um Carro</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/deletar_reservado.php')">Deletar Carro Reservado</a>
         </div>
@@ -56,9 +56,9 @@
          Alugar
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/livros_alugados.php')">Carros Alugados</a>
+          <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/todos_alugados.php')">Carros Alugados</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/alugar_livro.php')">Alugar Um Carro</a>
+          <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/alugar_carro.php')">Alugar Um Carro</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/deletar_alugado.php')">Deletar Carro Alugado</a>
         </div>

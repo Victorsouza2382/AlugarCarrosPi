@@ -18,8 +18,9 @@
             $conexao = new Conexao();
             $conexao->conectar();
             $sql = $conexao->getConexao();
-
-            $stmt = $sql->prepare("update situacao set situacao = ? where idsituacao = ?");
+            
+            $stmt = $sql->prepare("UPDATE situacao SET situacao = ? WHERE situacao.idsituacao = ?");
+            
             $stmt->bindValue(1, $situacao);
             $stmt->bindValue(2, $id);
             $stmt->execute();

@@ -43,5 +43,25 @@
             $stmt->execute();
         
         }
+
+        public function obterIdUsuario($dados){
+            $nome = strtolower($dados['usuario']);
+
+            $conexao = new Conexao();
+            $conexao->conectar();
+            $sql = $conexao->getConexao();
+
+            $stmt = $sql->prepare("select * from usuario");
+            $stmt->execute();
+
+            $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach($usuarios as $usuario){
+                
+                if(strtolower($usuario['nome_usuario']) == $nome){
+                    return $usuario['idusuario'];
+                }
+            }
+        }
     }
 ?>
