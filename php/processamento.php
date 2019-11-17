@@ -19,6 +19,34 @@
 
             header('location: ../index.php');
             break;
+        case 'cadastrarCarro':
+            $carro = new Carro();
+            $carro->cadastrarCarro($_POST);
+            $id = $carro->obterIdCarro($_POST);
+
+            //foto
+            $foto = new Foto();
+            $foto->adicionarFoto($_POST, $id);
+
+            $situacao = new Situacao();
+            $situacao->situacaoCarro('Disponivel', $id);
+
+            header('location: ../index.php');
+            break;
+        case 'deletarCarro':
+            $carro = new Carro();
+            $id = $carro->obterIdCarro($_POST);
+ 
+            $situacao = new Situacao();
+            $situacao->deletarSituacao($id);
+
+            $foto = new Foto();
+            $foto->deletarFoto($id);
+
+            $carro->deletarCarro($_POST);
+            header('location: ../index.php');
+            break;
+            
     }
 
 ?>

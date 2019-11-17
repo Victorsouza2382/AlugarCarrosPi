@@ -16,7 +16,7 @@
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Biblioteca</a>
+  <a class="navbar-brand" href="#">Alugar Carros<</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -69,11 +69,11 @@
          Carros
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/livros_alugados.php')">Todos os Carros</a>
+          <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/todos_carros.php')">Todos os Carros</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/alugar_livro.php')">Cadastrar um Carro</a>
+          <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/cadastrar_carro.php')">Cadastrar um Carro</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/deletar_alugado.php')">Deletar Carro</a>
+          <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/deletar_carro.php')">Deletar Carro</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -85,8 +85,6 @@
           <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/todos_usuarios.php')">LIstar Usuarios</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/cadastrar_usuario.php')">Cadastrar Usuario</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/cadastrar_usuario.php')">Deletar Usuario</a>
         </div>
       </li>
     </ul>
