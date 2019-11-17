@@ -156,7 +156,8 @@
             $sql = $conexao->getConexao();
 
             $stmt = $sql->prepare("SELECT carro.idcarro, carro.placa_carro, carro.marca, carro.ano, 
-                usuario.nome_usuario, usuario.cpf, usuario.telefone, usuario.endereco, funcionario.nome_funcionario
+                usuario.nome_usuario, usuario.cpf, usuario.telefone, usuario.endereco, funcionario.nome_funcionario,
+                alugado.data_entrega
                 FROM carro, alugado, usuario, funcionario
                 where (carro.idcarro = alugado.carro_idcarro)");
             $stmt->execute();
@@ -171,12 +172,13 @@
                     "<strong>Placa: </strong>" . $carro['placa_carro'] . "<br>" .
                     "<strong>Marca: </strong>" . $carro['marca'] . "<br>" .
                     "<strong>Ano: </strong>" . $carro['ano'] . "</div>";   
-                echo "<div class='col-sm-6 border-bottom border-left pt-3'>" . 
+                echo "<div class='col-sm-6 border-bottom border-left pt-2'>" . 
                     "<strong>Nome: </strong>" . $carro['nome_usuario'] . "<br>" .
                     "<strong>CPF: </strong>" . $carro['cpf'] . "<br>" .
                     "<strong>Telefone: </strong>" . $carro['telefone'] . "<br>" .
                     "<strong>Endereco: </strong>" . $carro['endereco'] . "<br>" .
-                    "<strong>Nome Funcionario: </strong>" . $carro['nome_funcionario'] . "</div>";  
+                    "<strong>Nome Funcionario: </strong>" . $carro['nome_funcionario'] . "<br>" .
+                    "<strong>DATA DE ENTREGA: </strong>" . $carro['data_entrega'] . "</div>";  
             }
         }
 
@@ -193,6 +195,18 @@
         }
 
         public function deletarAlugado($id_carro, $id_usuario){
+            $conexao = new Conexao();
+            $conexao->conectar();
+            $sql = $conexao->getConexao();
+
+            $stmt = $sql->prepare("delete from alugado 
+            where ((alugado.carro_idcarro = ?) and (alugado.usuario_idusuario = ?))");
+            $stmt->bindValue(1, $id_carro);
+            $stmt->bindValue(2, $id_usuario);
+            $stmt->execute();
+        }
+
+        public function receberCarro($id_usuario, $id_carro){
             $conexao = new Conexao();
             $conexao->conectar();
             $sql = $conexao->getConexao();

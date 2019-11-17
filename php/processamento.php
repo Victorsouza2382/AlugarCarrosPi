@@ -82,14 +82,17 @@
             $situacao->atualizarSituacao('Alugado', $id_carro);
             header('location: ../index.php');
             break;
-        case 'deletarAlugado':
+        case 'receberCarro':
             $carro = new Carro();
             $id_carro = $carro->obterIdCarro($_POST);
 
             $usuario = new Usuario();
             $id_usuario = $usuario->obterIdUsuario($_POST);
 
-            $carro->deletarAlugado($id_carro, $id_usuario);
+            $carro->receberCarro($id_carro, $id_usuario);
+            
+            $situacao = new Situacao();
+            $situacao->atualizarSituacao('Disponivel', $id_carro);
             header('location: ../index.php');
             break;            
     }
