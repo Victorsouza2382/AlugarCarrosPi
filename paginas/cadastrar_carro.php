@@ -16,7 +16,7 @@
                     <input type="text" name="ano" placeholder="Ano" class="form-control" required><br>
                     <input type="text" name="placa" placeholder="Placa" class="form-control" required><br>
                     <label class="label" for="exampleFormControlFile1">Escolha uma foto:</label>
-                    <input type="file" name="imagem" class="form-control-file">
+                    <input type="file" name="imagem" class="form-control-file"><br>
                     <input type="submit" value="Cadastrar" class="btn btn-success">
                 </form>                
             </div>

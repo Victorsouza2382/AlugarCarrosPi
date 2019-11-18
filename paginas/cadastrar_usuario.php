@@ -20,8 +20,6 @@
                     <input type="submit" value="Cadastrar" class="btn btn-success">
                 </form>                
             </div>
-            
-            
         </div>
 	</div>
 </div>
