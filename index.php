@@ -8,13 +8,21 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="js/ajax.js"></script>
     <title>Alugar Carros</title>
-    <style>
-        /* body img {
-            margin: 0 auto;
-            height: 50%;
-            width: 50%;
-        } */
-    </style>
+    <?php
+        $actual_link = "localhost/$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+        if(strpos($actual_link, '#') !== false){        
+    ?>
+        <style>
+            body{
+                background-image: url('img/carro2.jpg');
+                background-repeat: no-repeat;
+                background-size:cover;
+            }
+        </style>
+    <?php
+        }
+    ?>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
