@@ -9,7 +9,7 @@
             $conexao->conectar();
             $stmt = $conexao->getConexao();
 
-            $target = "img/".basename($_FILES['imagem']['name']);
+            $target = "../img/".basename($_FILES['imagem']['name']);
 
             $imagem = $_FILES['imagem']['name'];
             
@@ -25,41 +25,6 @@
             }
         }
 
-        public function mostrarFoto_usuario($id){
-            $conexao = new Conexao();
-            $conexao->conectar();
-            $stmt = $conexao->getConexao();
-
-            $sql = $stmt->prepare("select local_foto from foto where usuario_id_usuario = ?");
-            $sql->bindValue(1, $id);
-            $sql->execute();
-
-            $fotos = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-            foreach($fotos as $foto){
-                echo "<img src='../img_usuarios/" . $foto['local_foto'] . "' style='width:auto; height:200px'>";
-            }
-
-        }
-
-        public function mostrar_todas_fotos(){
-            $conexao = new Conexao();
-            $conexao->conectar();
-            $stmt = $conexao->getConexao();
-
-            $sql = $stmt->prepare("select local_foto from foto");
-            $sql->execute();
-
-            $fotos = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-            foreach($fotos as $foto){
-                if($foto['local_foto'] != null){
-                    echo "<img src='../img_usuarios/" . $foto['local_foto'] . "' style='width:auto; height:200px'>";
-                }
-            }
-
-        }
-
         public function obterNomeFoto($id){
             $conexao = new Conexao();
             $conexao->conectar();
@@ -67,10 +32,10 @@
 
             $stmt = $sql->prepare("select * from foto");
             $stmt->execute();
-
+            
             $fotos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach($fotos as $foto){
-                if(strtolower($foto['idfoto']) == $id){
+                if($foto['carro_idcarro'] == $id){
                     return $foto['foto'];
                 }
             }

@@ -19,9 +19,9 @@
             $foto = new Foto();
             foreach($carros as $carro){
                 $nome_foto = $foto->obterNomeFoto($carro['idcarro']);
-                echo "<div class='col-sm-2 border-bottom pt-2'>" .
+                echo "<div class='col-sm-3 border-bottom pt-2'>" .
                     "<img src='img/" . $nome_foto . "' style='height:140px;'>" . "</div>";  
-                echo "<div class='col-sm-4 border-bottom pt-5'>" . 
+                echo "<div class='col-sm-3 border-bottom pt-5'>" . 
                     "<strong>Placa: </strong>" . $carro['placa_carro'] . "<br>" .
                     "<strong>Marca: </strong>" . $carro['marca'] . "<br>" .
                     "<strong>Ano: </strong>" . $carro['ano'] . "</div>";   
@@ -112,27 +112,30 @@
             $sql = $conexao->getConexao();
 
             $stmt = $sql->prepare("SELECT carro.idcarro, carro.placa_carro, carro.marca, carro.ano, 
-                usuario.nome_usuario, usuario.cpf, usuario.telefone, usuario.endereco, funcionario.nome_funcionario
-                FROM carro, reserva, usuario, funcionario
-                where (carro.idcarro = reserva.carro_idcarro)");
+            usuario.nome_usuario, usuario.cpf, usuario.telefone, usuario.endereco, funcionario.nome_funcionario,
+            reserva.data_reserva
+            FROM carro, reserva, usuario, funcionario
+            where ((carro.idcarro = reserva.carro_idcarro) and (reserva.usuario_idusuario = usuario.idusuario)
+             and(usuario.funcionario_idfuncionario = funcionario.idfuncionario))");
             $stmt->execute();
             
             $carros =  $stmt->fetchAll(PDO::FETCH_ASSOC);
             $foto = new Foto();
             foreach($carros as $carro){
                 $nome_foto = $foto->obterNomeFoto($carro['idcarro']);
-                echo "<div class='col-sm-2 border-bottom pt-2'>" .
+                echo "<div class='col-sm-3 border-bottom pt-2'>" .
                     "<img src='img/" . $nome_foto . "' style='height:140px;'>" . "</div>";  
-                echo "<div class='col-sm-4 border-bottom pt-5'>" . 
+                echo "<div class='col-sm-3 border-bottom pt-5'>" . 
                     "<strong>Placa: </strong>" . $carro['placa_carro'] . "<br>" .
                     "<strong>Marca: </strong>" . $carro['marca'] . "<br>" .
                     "<strong>Ano: </strong>" . $carro['ano'] . "</div>";   
-                echo "<div class='col-sm-6 border-bottom border-left pt-3'>" . 
+                echo "<div class='col-sm-6 border-bottom border-left pt-2 pb-2'>" . 
                     "<strong>Nome: </strong>" . $carro['nome_usuario'] . "<br>" .
                     "<strong>CPF: </strong>" . $carro['cpf'] . "<br>" .
                     "<strong>Telefone: </strong>" . $carro['telefone'] . "<br>" .
                     "<strong>Endereco: </strong>" . $carro['endereco'] . "<br>" .
-                    "<strong>Nome Funcionario: </strong>" . $carro['nome_funcionario'] . "</div>";  
+                    "<strong>Nome Funcionario: </strong>" . $carro['nome_funcionario'] .  "<br>" .
+                    "<strong>DATA DE RESERVA: </strong>" . $carro['data_reserva'] . "</div>";   
             }
         }
 
@@ -159,20 +162,21 @@
                 usuario.nome_usuario, usuario.cpf, usuario.telefone, usuario.endereco, funcionario.nome_funcionario,
                 alugado.data_entrega
                 FROM carro, alugado, usuario, funcionario
-                where (carro.idcarro = alugado.carro_idcarro)");
+                where ((carro.idcarro = alugado.carro_idcarro) and (alugado.usuario_idusuario = usuario.idusuario)
+             and(usuario.funcionario_idfuncionario = funcionario.idfuncionario))");
             $stmt->execute();
             
             $carros =  $stmt->fetchAll(PDO::FETCH_ASSOC);
             $foto = new Foto();
             foreach($carros as $carro){
                 $nome_foto = $foto->obterNomeFoto($carro['idcarro']);
-                echo "<div class='col-sm-2 border-bottom pt-2'>" .
+                echo "<div class='col-sm-3 border-bottom pt-2'>" .
                     "<img src='img/" . $nome_foto . "' style='height:140px;'>" . "</div>";  
-                echo "<div class='col-sm-4 border-bottom pt-5'>" . 
+                echo "<div class='col-sm-3 border-bottom pt-5'>" . 
                     "<strong>Placa: </strong>" . $carro['placa_carro'] . "<br>" .
                     "<strong>Marca: </strong>" . $carro['marca'] . "<br>" .
                     "<strong>Ano: </strong>" . $carro['ano'] . "</div>";   
-                echo "<div class='col-sm-6 border-bottom border-left pt-2'>" . 
+                echo "<div class='col-sm-6 border-bottom border-left  pt-2 pb-2''>" . 
                     "<strong>Nome: </strong>" . $carro['nome_usuario'] . "<br>" .
                     "<strong>CPF: </strong>" . $carro['cpf'] . "<br>" .
                     "<strong>Telefone: </strong>" . $carro['telefone'] . "<br>" .

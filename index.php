@@ -9,11 +9,11 @@
     <script src="js/ajax.js"></script>
     <title>Alugar Carros</title>
     <style>
-        body img {
+        /* body img {
             margin: 0 auto;
             height: 50%;
             width: 50%;
-        }
+        } */
     </style>
 </head>
 <body>
