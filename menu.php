@@ -62,9 +62,6 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/alugar_carro.php')">Alugar Um
                         Carro</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#" onclick="requisitarPagina('paginas/deletar_alugado.php')">Deletar
-                        Carro Alugado</a>
                 </div>
             </li>
             <li class="nav-item dropdown">

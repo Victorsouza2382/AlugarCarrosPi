@@ -89,7 +89,7 @@
             $usuario = new Usuario();
             $id_usuario = $usuario->obterIdUsuario($_POST);
 
-            $carro->receberCarro($id_carro, $id_usuario);
+            $carro->receberCarro($id_usuario ,$id_carro);
             
             $situacao = new Situacao();
             $situacao->atualizarSituacao('Disponivel', $id_carro);

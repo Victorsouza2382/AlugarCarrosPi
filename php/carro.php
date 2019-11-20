@@ -214,7 +214,7 @@
             $conexao = new Conexao();
             $conexao->conectar();
             $sql = $conexao->getConexao();
-
+            
             $stmt = $sql->prepare("delete from alugado 
             where ((alugado.carro_idcarro = ?) and (alugado.usuario_idusuario = ?))");
             $stmt->bindValue(1, $id_carro);

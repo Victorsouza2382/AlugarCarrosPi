@@ -4,7 +4,6 @@ include_once 'menu.php';
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,7 +26,6 @@ include_once 'menu.php';
     <?php
         }
     ?>
-=======
     <style>
          body img {
             margin: 0 auto;
@@ -35,7 +33,6 @@ include_once 'menu.php';
             width: 50%;
         }
     </style>
->>>>>>> 53560ad83f293f0d2f9d547ad06282d5b9989699
 </head>
 <body>
 <div>
