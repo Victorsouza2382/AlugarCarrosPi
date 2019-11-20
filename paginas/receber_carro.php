@@ -14,7 +14,7 @@
                 <form action="php/processamento.php?acao=receberCarro" method="post" class="border p-5 border-dark rounded shadow" enctype="multipart/form-data">
                     <input type="text" name="usuario" placeholder="Usuario" class="form-control" required><br>
                     <input type="text" name="placa" placeholder="Placa" class="form-control" required><br>
-                    <input type="submit" value="Cadastrar" class="btn btn-success">
+                    <input type="submit" value="Receber" class="btn btn-success">
                 </form>                
             </div>
         </div>
