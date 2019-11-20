@@ -5,4 +5,5 @@
     include_once 'carro.php';
     include_once 'foto.php';
     include_once 'situacao.php';
+    include_once 'foto.php';
 ?>
